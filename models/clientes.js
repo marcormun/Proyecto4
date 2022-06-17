@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class clientes extends Model {
 
     static associate(models) {
+      console.log(models);
       this.hasMany(models.reservas,{
         foreignKey:'dni',
       });

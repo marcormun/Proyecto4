@@ -11,7 +11,7 @@ const reservasController = {}; // Creamos el controloador de reservas
 //GET reservas
 reservasController.getAll = (req, res) => {
     
-    reservas.findAll({include: [{ model:hotelModel}, {model:clientModel}] })
+    reservas.findAll()
       .then(data => {
         res.send(data);
       })
@@ -27,7 +27,7 @@ reservasController.getAll = (req, res) => {
 reservasController.getById = (req, res) => {
     const id = req.params.id;
 
-    reservas.findByPk(id, {include: [{ model:hotelModel}, {model:clientModel}]})
+    reservas.findByPk(id  )
       .then(data => {
         if (data) {
           res.send(data);
@@ -47,11 +47,8 @@ reservasController.getById = (req, res) => {
   //GET reserva por nombre de cliente
 
   reservasController.getByDniCliente = (req, res) => {
-    reservas.findAll({
-        include: [{ 
-            model:hotelModel,
-            model:clientModel,
-            where: { nombre: req.params.nombre }}]})
+    reservas.findAll(
+            {where: { dni: req.params.dni }})
       .then(data => {
         res.send(data);
       })
@@ -62,47 +59,8 @@ reservasController.getById = (req, res) => {
         });
       });
   };
-// get reserva por telefono
-reservasController.getByTelefono = (req, res) => {
-    reservas.findAll({
-        include: [{ 
-            model:hotelModel,
-            model:clientModel,
-            where: { telefono: req.params.telefono }}]})
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Ha habido algun error buscando el telefono."
-        });
-      });
-  };
-
-  // get por email
-  reservasController.getByEmail = (req, res) => {
-    reservas.findAll({
-        include: [{ 
-            model:hotelModel,
-            model:clientModel,
-            where: { email: req.params.email }}]})
-      .then(data => {
-        res.send(data);
-      })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Ha habido algun error buscando el email."
-        });
-      });
-  };
   reservasController.getByHotelId = (req, res) => {
-    reservas.findAll({
-        include: [{ 
-            model:hotelModel,
-            model:clientModel,
-            where: { hotelName: req.params.hotelName }}]})
+    reservas.findAll({where: { hotelId: req.params.hotelId }})
       .then(data => {
         res.send(data);
       })
@@ -114,11 +72,7 @@ reservasController.getByTelefono = (req, res) => {
       });
   };
   reservasController.getByFechaEntrada = (req, res) => {
-    reservas.findAll({
-        include: [{ 
-            model:hotelModel,
-            model:clientModel,
-            where: { fechaEntrada: req.params.fechaEntrada }}]})
+    reservas.findAll({where: { fechaEntrada: req.params.fechaEntrada }})
       .then(data => {
         res.send(data);
       })
@@ -130,11 +84,7 @@ reservasController.getByTelefono = (req, res) => {
       });
   };
   reservasController.getByFechaSalida = (req, res) => {
-    reservas.findAll({
-        include: [{ 
-            model:hotelModel,
-            model:clientModel,
-            where: { fechaSalida: req.params.fechaSalida }}]})
+    reservas.findAll({where: { fechaSalida: req.params.fechaSalida }})
       .then(data => {
         res.send(data);
       })

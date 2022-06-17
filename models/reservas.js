@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
   reservas.init({
     importe: DataTypes.INTEGER,
     fechaEntrada: DataTypes.DATE,
-    fechaSalida: DataTypes.DATE
+    fechaSalida: DataTypes.DATE,
+    hotelId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'reservas',
