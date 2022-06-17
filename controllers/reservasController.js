@@ -1,18 +1,14 @@
-//Importo modelo de datos
 const db = require("../models");
-const reservas = db.reserva;
+const reservas = db.reservas;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
-//Para las dependencias
 var hotelModel  = require('../models').hoteles;  
 var clientModel  = require('../models').clientes;
 
 const reservasController = {}; // Creamos el controloador de reservas
 
 
-
-//CRUD end-points Functions
-//GET all reservas
+//GET reservas
 reservasController.getAll = (req, res) => {
     
     reservas.findAll({include: [{ model:hotelModel}, {model:clientModel}] })
