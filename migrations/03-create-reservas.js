@@ -20,6 +20,24 @@ module.exports = {
       fechaSalida: {
         type: Sequelize.DATE
       },
+      dni: {
+        type: Sequelize.STRING,
+        references: {
+          model: 'clientes',
+          key: 'dni'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+      hotelId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'hoteles',
+          key: 'hotelId'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
