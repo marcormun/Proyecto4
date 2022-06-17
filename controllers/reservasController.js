@@ -4,8 +4,8 @@ const reservas = db.reserva;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
 //Para las dependencias
-var hotelModel  = require('../models').hotel;  
-var clientModel  = require('../models').cliente;
+var hotelModel  = require('../models').hoteles;  
+var clientModel  = require('../models').clientes;
 
 const reservasController = {}; // Creamos el controloador de reservas
 
