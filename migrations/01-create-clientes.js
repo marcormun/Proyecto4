@@ -2,13 +2,13 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('clientes', {
-      dni: {
+      dni:{
         allowNull: false,
         autoIncrement: false,
         primaryKey: true,
         type: Sequelize.STRING
       },
-      nombre: {
+      nombre:{
         type: Sequelize.STRING
       },
       telefono: {

@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idReserva: {
-        type: Sequelize.INTEGER
-      },
       importe: {
         type: Sequelize.INTEGER
       },
@@ -27,7 +24,7 @@ module.exports = {
           key: 'dni'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE' 
       },
       hotelId: {
         type: Sequelize.INTEGER,
@@ -36,7 +33,7 @@ module.exports = {
           key: 'hotelId'
         },
         onUpdate: 'CASCADE',
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE' 
       },
       createdAt: {
         allowNull: false,
@@ -45,7 +42,8 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      
     });
   },
   async down(queryInterface, Sequelize) {

@@ -8,9 +8,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      hotelId: {
-        type: Sequelize.INTEGER
-      },
       nombre: {
         type: Sequelize.STRING
       },

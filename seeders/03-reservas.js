@@ -161,7 +161,7 @@ module.exports = {
       "createdAt": "2021-06-28 01:05:08",
       "updatedAt": "2021-12-12 12:52:14",
       "dni": "11111111T",
-      "hotelId": 191
+      "hotelId": 181
     }], {});
   },
 
