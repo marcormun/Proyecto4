@@ -51,7 +51,7 @@ reservasController.getById = (req, res) => {
         include: [{ 
             model:hotelModel,
             model:clientModel,
-            where: { clientName: req.params.clientName }}]})
+            where: { nombre: req.params.nombre }}]})
       .then(data => {
         res.send(data);
       })
