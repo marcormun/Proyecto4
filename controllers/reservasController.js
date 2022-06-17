@@ -1,37 +1,37 @@
 //Importo modelo de datos
 const db = require("../models");
-const Reservas = db.reserva;
+const reservas = db.reserva;
 const Op = db.Sequelize.Op; //Import all ORM sequelize functions 
 
 //Para las dependencias
 var hotelModel  = require('../models').hotel;  
 var clientModel  = require('../models').cliente;
 
-const ReservaController = {}; // Creamos el controloador de reservas
+const reservasController = {}; // Creamos el controloador de reservas
 
 
 
 //CRUD end-points Functions
 //GET all reservas
-ReservaController.getAll = (req, res) => {
+reservasController.getAll = (req, res) => {
     
-    Reservas.findAll({include: [{ model:hotelModel}, {model:clientModel}] })
+    reservas.findAll({include: [{ model:hotelModel}, {model:clientModel}] })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Ha ocurrido algun error mostrando las Reservas."
+            err.message || "Ha ocurrido algun error mostrando las reservas."
         });
       });
   };
 
-//GET Reservas by Id
-ReservaController.getById = (req, res) => {
+//GET reservas by Id
+reservasController.getById = (req, res) => {
     const id = req.params.id;
 
-    Reservas.findByPk(id, {include: [{ model:hotelModel}, {model:clientModel}]})
+    reservas.findByPk(id, {include: [{ model:hotelModel}, {model:clientModel}]})
       .then(data => {
         if (data) {
           res.send(data);
@@ -43,15 +43,15 @@ ReservaController.getById = (req, res) => {
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Reservas with id=" + id
+          message: "Error retrieving reservas with id=" + id
         });
       });
   };
 
   //GET reserva por nombre de cliente
 
-ReservaController.getByDniCliente = (req, res) => {
-    Reservas.findAll({
+  reservasController.getByDniCliente = (req, res) => {
+    reservas.findAll({
         include: [{ 
             model:hotelModel,
             model:clientModel,
@@ -67,8 +67,8 @@ ReservaController.getByDniCliente = (req, res) => {
       });
   };
 // get reserva por telefono
-  ReservaController.getByTelefono = (req, res) => {
-    Reservas.findAll({
+reservasController.getByTelefono = (req, res) => {
+    reservas.findAll({
         include: [{ 
             model:hotelModel,
             model:clientModel,
@@ -85,8 +85,8 @@ ReservaController.getByDniCliente = (req, res) => {
   };
 
   // get por email
-  ReservaController.getByEmail = (req, res) => {
-    Reservas.findAll({
+  reservasController.getByEmail = (req, res) => {
+    reservas.findAll({
         include: [{ 
             model:hotelModel,
             model:clientModel,
@@ -101,8 +101,8 @@ ReservaController.getByDniCliente = (req, res) => {
         });
       });
   };
-  ReservaController.getByHotelId = (req, res) => {
-    Reservas.findAll({
+  reservasController.getByHotelId = (req, res) => {
+    reservas.findAll({
         include: [{ 
             model:hotelModel,
             model:clientModel,
@@ -117,8 +117,8 @@ ReservaController.getByDniCliente = (req, res) => {
         });
       });
   };
-  ReservaController.getByFechaEntrada = (req, res) => {
-    Reservas.findAll({
+  reservasController.getByFechaEntrada = (req, res) => {
+    reservas.findAll({
         include: [{ 
             model:hotelModel,
             model:clientModel,
@@ -133,8 +133,8 @@ ReservaController.getByDniCliente = (req, res) => {
         });
       });
   };
-  ReservaController.getByFechaSalida = (req, res) => {
-    Reservas.findAll({
+  reservasController.getByFechaSalida = (req, res) => {
+    reservas.findAll({
         include: [{ 
             model:hotelModel,
             model:clientModel,
@@ -150,4 +150,4 @@ ReservaController.getByDniCliente = (req, res) => {
       });
   };
 
-module.exports = ReservaController;
+module.exports = reservasController;
