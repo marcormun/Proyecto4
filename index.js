@@ -16,6 +16,7 @@ app.use(express.json());
 
 //Rutas
 app.use(router);
+app.get('/', (req, res) => res.send('API de reservas'));
 
 //Conexion a la base de datos
 db.then(()=>{
