@@ -29,6 +29,3 @@ Los datos de las reservas se pueden visualizar desde postman a través de la URL
 
 /reservas/entrada/:fechaSalida - Mostrar las reservas a través de la fecha de salida
 
-
-[:top:](#subir)
-
