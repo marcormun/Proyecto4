@@ -1,4 +1,5 @@
 'use strict';
+//Tabla Hoteles MySQL
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('hoteles', {

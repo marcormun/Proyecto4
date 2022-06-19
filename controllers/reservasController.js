@@ -5,12 +5,11 @@ const Op = db.Sequelize.Op; //Import all ORM sequelize functions
 var hotelModel  = require('../models').hoteles;  
 var clientModel  = require('../models').clientes;
 
-const reservasController = {}; // Creamos el controloador de reservas
+const reservasController = {};
 
 
-//GET reservas
+//GET de todas las reservas
 reservasController.getAll = (req, res) => {
-    
     reservas.findAll()
       .then(data => {
         res.send(data);
@@ -23,7 +22,7 @@ reservasController.getAll = (req, res) => {
       });
   };
 
-//GET reservas by Id
+//GET de las reservas por id
 reservasController.getById = (req, res) => {
     const id = req.params.id;
 
@@ -44,7 +43,7 @@ reservasController.getById = (req, res) => {
       });
   };
 
-  //GET reserva por nombre de cliente
+  //GET de reservas por dni de cliente
 
   reservasController.getByDniCliente = (req, res) => {
     reservas.findAll(
@@ -59,6 +58,9 @@ reservasController.getById = (req, res) => {
         });
       });
   };
+
+  //GET de reservas por id de hotel
+
   reservasController.getByHotelId = (req, res) => {
     reservas.findAll({where: { hotelId: req.params.hotelId }})
       .then(data => {
@@ -71,6 +73,9 @@ reservasController.getById = (req, res) => {
         });
       });
   };
+
+  //GET de reservas por feche de entrada y salida
+
   reservasController.getByFechaEntrada = (req, res) => {
     reservas.findAll({where: { fechaEntrada: req.params.fechaEntrada }})
       .then(data => {

@@ -5,7 +5,9 @@ const logger = require('./config/winston');
 const db = require('./db.js');
 const router = require('./router.js');
 
+//Llamado a express
 const app = express();
+//Variable del puerto de heroku
 const PORT = process.env.PORT || 3000; //Configuramos puerto heroku
 
 //Middleware
@@ -15,9 +17,8 @@ app.use(express.json());
 //Rutas
 app.use(router);
 
-//Connecting to the database
+//Conexion a la base de datos
 db.then(()=>{
-    //Starting server
         app.listen(PORT, ()=> console.log(`Server on port ${PORT}`.bgGreen.black));
     })
     .catch((err)=> console.log(err.message));

@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-//Importo modelo de datos
+//Vinculo con el controlador
 const reservasController = require('../controllers/reservasController');
 
-// End-points CRUD Reservas
+// End-points de Reservas
 router.get('/', reservasController.getAll);
 router.get('/:id', reservasController.getById);
 router.get('/dniCliente/:dni', reservasController.getByDniCliente);

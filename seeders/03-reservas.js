@@ -1,5 +1,5 @@
 'use strict';
-
+//INSERTS Reservas
 module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('reservas', [{
