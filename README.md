@@ -2,7 +2,7 @@
 
 App para visualizar datos de reservas hecha con node, express y sequelize, desplegada en heroku
 
----------------------------------------
+-----------------------------
 
 - [Como usar](#como-usar)
 - [Endpoints](#endpoints)
@@ -14,6 +14,7 @@ App para visualizar datos de reservas hecha con node, express y sequelize, despl
 
 Los datos de las reservas se pueden visualizar desde postman a través de la URL https://proyecto4geekshubs.herokuapp.com/ o haciendo peticiones desde Postman
 
+-----------------------------
 
 # Endpoints
 
