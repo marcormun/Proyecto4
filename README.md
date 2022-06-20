@@ -10,7 +10,7 @@ App para visualizar datos de reservas hecha con node, express y sequelize, despl
 
 -----------------------------
 
-# como-usar
+# Como usar
 
 Los datos de las reservas se pueden visualizar desde postman a través de la URL https://proyecto4geekshubs.herokuapp.com/ o haciendo peticiones desde Postman
 
