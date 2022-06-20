@@ -12,10 +12,10 @@ const reservasController = {};
 reservasController.getAll = (req, res) => {
     reservas.findAll()
       .then(data => {
-        res.send(data);
+        return res.send(data);
       })
       .catch(err => {
-        res.status(500).send({
+        return res.status(500).send({
           message:
             err.message || "Ha ocurrido algun error mostrando las reservas."
         });
@@ -25,19 +25,16 @@ reservasController.getAll = (req, res) => {
 //GET de las reservas por id
 reservasController.getById = (req, res) => {
     const id = req.params.id;
-
-    reservas.findByPk(id  )
+    reservas.findByPk(id)
       .then(data => {
-        if (data) {
-          res.send(data);
-        } else {
-          res.status(404).send({
-            message: `No se ha podido encontrar la Reserva con id=${id}.`
-          });
-        }
+        if (data) return res.send(data);
+
+        return res.status(404).send({
+          message: `No se ha podido encontrar la Reserva con id=${id}.`
+        });
       })
       .catch(err => {
-        res.status(500).send({
+        return res.status(500).send({
           message: "Error retrieving reservas with id=" + id
         });
       });
